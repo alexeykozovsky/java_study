@@ -12,16 +12,28 @@ public class task3_2b {
         }
         // Массив создан
 
-        for(int a = 1; a < len; a++) {
-            for (int b = len - 1; b >= a; b--) {
-                if (array[b - 1] > array[b]) {
-                    // меняем местами элементы
-                    int temp = array[b-1];
-                    array[b-1] = array[b];
-                    array[b] = temp;
+        int temp;
+        int left = 0;
+        int right = array.length-1;
+        do {
+            for (int i = left; i < right; i++) {
+                if (array[i] > array[i+1]) {
+                    temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
                 }
             }
-        }
+            right--;
+            for (int i = right; i > left; i--) {
+                if (array[i] < array[i-1]) {
+                    temp = array[i];
+                    array[i] = array[i - 1];
+                    array[i - 1] = temp;
+                }
+            }
+            left++;
+        } while (left < right);
+
         System.out.print ("Вывод элементов массива:");
         for (int j = 0; j < array.length; j++) {
             System.out.print (" " + array[j]);
