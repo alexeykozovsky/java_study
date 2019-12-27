@@ -9,6 +9,7 @@ public class task3 {
         String b = "Мама мыла раму";
         System.out.println(a);
         System.out.println(b);
+        a = a.intern();
         System.out.println(a == b);
         System.out.println(a.equals( b ));
 
