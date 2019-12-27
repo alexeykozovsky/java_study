@@ -1,8 +1,7 @@
-public class Count {
+class Count {
     public static void main(String[] args) {
-
-//        Count c = Count.valueOf( Count.class, "BELARUS" );
-//        System.out.println(c);
+        System.out.println(Country.BELARUS == Country.BELARUS);
+        System.out.println(Country.BELARUS ==  Country.valueOf( "BELARUS" ));
 
     }
 }
@@ -32,6 +31,17 @@ public enum Country implements ICountry {
     public void getPopulation() {
         System.out.println("Население : " + population + " млн.чел.");
     }
+
+    public int compare(Country country){
+        if (this.area == country.area){
+            return 0;
+        } else if (this.area > country.area) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
 }
 
 
