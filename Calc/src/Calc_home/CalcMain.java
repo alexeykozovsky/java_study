@@ -1,6 +1,6 @@
 package Calc_home;
 
-public class CalcMain //Main class
+public class CalcMain
 {
     public static void main(String[] args)
     {
