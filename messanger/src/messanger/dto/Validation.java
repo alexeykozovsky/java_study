@@ -4,6 +4,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validation {
+    public boolean validation(String name, String password) throws ValidationExc
+    {
+        return validateName(name) && validatePassword(password);
+    }
+
     public static boolean validateName (String name) throws ValidationExc{
         Pattern pattern = Pattern.compile( "[a-zA-Z0-9]+@[a-zA-Z0-9.]+" );
         Matcher matcher = pattern.matcher( name );
