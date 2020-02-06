@@ -66,7 +66,7 @@ public abstract class AChat implements IChat {
     }
 
     @Override
-    public void save(ISaverChat saver) throws IOException {
+    public void saveChat(ISaverChat saver) throws IOException {
         saver.saveChat(this);
     }
 }

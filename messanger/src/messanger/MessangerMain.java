@@ -1,13 +1,11 @@
 package messanger;
 
-import messanger.dto.Registration;
-import messanger.dto.User;
-import messanger.dto.Validation;
-import messanger.dto.ValidationExc;
+import messanger.dto.*;
 import messanger.dto.chat.TextChat;
 import messanger.dto.message.TextMessage;
 import messanger.dto.message.api.IMessage;
 import messanger.dto.message.api.MessageType;
+import messanger.dto.savers.BinSaver;
 import messanger.dto.savers.ConsoleSaver;
 import messanger.dto.savers.FileSaver;
 
@@ -36,19 +34,28 @@ public class MessangerMain {
 
         TextChat textChat = new TextChat(users, messages);
 
+        try {
+            textChat.saveChat( new BinSaver() );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         try {
-            textChat.save(new ConsoleSaver());
+            textChat.saveChat(new ConsoleSaver());
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            textChat.save(new FileSaver(new FileOutputStream("file_name.txt")));
+            textChat.saveChat(new FileSaver(new FileOutputStream("file_name.txt")));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        UserLoader userLoader = new UserLoader();
+        userLoader.saveUser( registration );
+        userLoader.loadUser( registration );
 
     }
 

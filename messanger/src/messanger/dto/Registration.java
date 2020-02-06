@@ -5,7 +5,15 @@ import java.util.Map;
 import java.util.Random;
 
 public class Registration {
-    private final Map<String, User> users = new LinkedHashMap<>(  );
+    private Map<String, User> users = new LinkedHashMap<>(  );
+
+    public Map<String, User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Map<String, User> userMap) {
+        this.users = userMap;
+    }
 
     public User registration(String name, String password) throws ValidationExc {
         if(!users.containsKey(name))

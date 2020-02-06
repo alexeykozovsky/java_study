@@ -15,7 +15,7 @@ public interface IChat {
     void addMessage(IMessage message);
     void addMessage(IMessage[] message);
     void addMessage(List<IMessage> message);
-    void save(ISaverChat saver) throws IOException;
+    void saveChat(ISaverChat saver) throws IOException;
 
 
 }
