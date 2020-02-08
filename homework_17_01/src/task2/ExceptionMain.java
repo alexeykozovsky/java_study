@@ -9,11 +9,21 @@ public class ExceptionMain {
         String psw = in.nextLine();
 
         Password password = new Password();
+        PasswordInt passwordInt = new PasswordInt();
+
 
         try {
             password.ExcPassword( psw );
         } catch (MyExc1 myExc1) {
             myExc1.printStackTrace();
+        } catch (MyExc2 myExc2) {
+            myExc2.printStackTrace();
+        }
+
+        try {
+            passwordInt.ExcPassword( psw );
+        } catch (MyExc2 myExc2) {
+            myExc2.printStackTrace();
         }
 
 

@@ -22,6 +22,7 @@ public class task3$4 {
                 N+=1;
                 if (N >= 3){
                     System.out.println("У Вас третья неверная попытка ввода");
+                    return;
                 }
                 System.out.println("Введите целое число! Осталось " + (3-N) + " попыток");
 
