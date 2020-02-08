@@ -1,11 +1,6 @@
-class Count {
-    public static void main(String[] args) {
-        System.out.println(Country.BELARUS == Country.BELARUS);
-        System.out.println(Country.BELARUS ==  Country.valueOf( "BELARUS" ));
+import api.ICountry;
 
-    }
-}
-public enum Country implements ICountry {
+public enum Country implements ICountry, Comparable<Country> {
     BELARUS( 207_595, 9_475_174 ),
     RUSSIA( 17_125_191, 146_780_720 ),
     POLAND( 312_679, 38_313_035 ),
@@ -24,12 +19,14 @@ public enum Country implements ICountry {
         this.area = area;
         this.population = population;
     }
-
-    public void getArea() {
-        System.out.println("Площадь : " + area + " тыс.км2");
+    @Override
+    public int getArea() {
+        return area;
     }
-    public void getPopulation() {
-        System.out.println("Население : " + population + " млн.чел.");
+
+    @Override
+    public int getPopulation() {
+        return population;
     }
 
     public int compare(Country country){
@@ -40,6 +37,12 @@ public enum Country implements ICountry {
         } else {
             return -1;
         }
+    }
+
+    public static Country a(String str){
+        String str1 = str.toUpperCase();
+        Country country = Country.valueOf( str1 );
+        return country;
     }
 
 }
