@@ -21,6 +21,7 @@ public class GarageMain {
 
         System.out.println("Сперва, давайте откроем машину");
         mercedes.start();
+        mercedes.
 
         // Увы, мы так никуда и не поехали(((
 
